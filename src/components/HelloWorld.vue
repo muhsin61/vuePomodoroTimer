@@ -2,19 +2,15 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <p>
-      For a guide and recipes on how to configure / customize this project,
+      this is time
     </p>
-    <div id="nav">
-      <router-link to="/">Podomoro</router-link> |
-      <router-link to="/shortBreak">Short Break</router-link> |
-      <router-link to="/longBreak">Long Break</router-link>
-    </div>
+    <h1>{{$store.state.time}}</h1>
+    
     <div class="buttons">
       <button>Start</button>
       <button>Stop</button>
       <button>Reset</button>
     </div>
-    <router-view />
   </div>
 </template>
 

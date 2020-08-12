@@ -1,15 +1,25 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    Podomoro
+    <div id="nav">
+      <router-link to="/">Podomoro</router-link> |
+      <router-link to="/shortBreak">Short Break</router-link> |
+      <router-link to="/longBreak">Long Break</router-link>
+    </div>
+    <router-view />
+    <footer>2 Podomoro</footer>
   </div>
 </template>
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
+//import HelloWorld from '@/components/HelloWorld.vue'
 export default {
   name: "App",
-  components: {
-    HelloWorld
-  }
+  watch:{
+    $route(){
+        alert("test" + this.$route)
+        console.log(this.$route.path)
+    }
+} 
 }
 </script>
 <style>
