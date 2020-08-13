@@ -2,9 +2,9 @@
   <div id="app">
     Podomoro
     <div id="nav">
-      <router-link to="/">Podomoro</router-link> |
-      <router-link to="/shortBreak">Short Break</router-link> |
-      <router-link to="/longBreak">Long Break</router-link>
+      <router-link to="/" >Podomoro</router-link>|
+      <router-link to="/shortBreak" >Short Break</router-link>|
+      <router-link to="/longBreak" >Long Break</router-link>
     </div>
     <router-view />
     <footer>2 Podomoro</footer>
@@ -12,15 +12,31 @@
 </template>
 <script>
 //import HelloWorld from '@/components/HelloWorld.vue'
+//import Push from "push.js"
 export default {
   name: "App",
-  watch:{
-    $route(){
-        alert("test" + this.$route)
-        console.log(this.$route.path)
-    }
-} 
-}
+  watch: {
+    $route() {
+      let route = this.$route.path;
+      //Push.create("Naber")
+    if (route === "/") {
+        console.log("çalıştı");
+        this.$store.state.times = 1;
+        this.$store.commit("say")
+      }
+      if (route === "/shortBreak") {
+        this.$store.state.times = 1;
+        this.$store.commit("say")
+
+      }
+      if (route === "/longBreak") {
+        this.$store.state.times = 1;
+        this.$store.commit("say")
+
+      }
+    },
+  },
+};
 </script>
 <style>
 #app {
