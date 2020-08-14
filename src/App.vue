@@ -18,21 +18,19 @@ export default {
   watch: {
     $route() {
       let route = this.$route.path;
+      this.$store.state.new = true;
       //Push.create("Naber")
-    if (route === "/") {
-        console.log("çalıştı");
+     if (route === "/") {
         this.$store.state.times = 1;
         this.$store.commit("say")
       }
       if (route === "/shortBreak") {
         this.$store.state.times = 1;
         this.$store.commit("say")
-
       }
       if (route === "/longBreak") {
         this.$store.state.times = 1;
         this.$store.commit("say")
-
       }
     },
   },
