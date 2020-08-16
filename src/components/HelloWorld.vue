@@ -7,9 +7,9 @@
     <h1>{{$store.state.time}}</h1>
     
     <div class="buttons">
-      <button>Start</button>
-      <button>Stop</button>
-      <button>Reset</button>
+      <button v-if="$store.state.onWorking" @click="onWorking">Stop</button>
+      <button  v-else @click="stop">Start</button>
+      <button @click="reset">Reset</button>
     </div>
   </div>
 </template>
@@ -20,6 +20,23 @@ export default {
   props: {
     msg: String,
   },
+  methods:{
+    reset(){
+      if(this.$store.state.reset == "long"){
+        this.$store.state.new = true;
+      }
+    },
+    onWorking(){
+      this.$store.state.new = true; 
+      this.$store.state.onWorking = false;
+    },
+    stop(){
+      this.$store.state.new = true; 
+      this.$store.state.onWorking = true;
+      this.$store.commit("say")
+    }
+  }
+
 };
 </script>
 

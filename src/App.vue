@@ -20,17 +20,30 @@ export default {
       let route = this.$route.path;
       this.$store.state.new = true;
       //Push.create("Naber")
-     if (route === "/") {
+      if (route === "/") {
         this.$store.state.times = 1;
-        this.$store.commit("say")
+          this.$store.state.time = "25:00";
+        if(this.$store.state.onWorking){
+          console.log("neden true: " + this.$store.state.onWorking)
+          this.$store.state.new = true;
+        }
       }
       if (route === "/shortBreak") {
         this.$store.state.times = 1;
-        this.$store.commit("say")
+        this.$store.state.time = "05:00";
+        if(this.$store.state.onWorking){
+          console.log("neden true: " + this.$store.state.onWorking)
+          this.$store.state.new = true;
+        }
       }
       if (route === "/longBreak") {
         this.$store.state.times = 1;
-        this.$store.commit("say")
+          this.$store.state.time = "10:00";
+        if(this.$store.state.onWorking){
+          console.log("neden true: " + this.$store.state.onWorking)
+          this.$store.state.new = true;
+          //this.$store.commit("say")
+        }
       }
     },
   },
