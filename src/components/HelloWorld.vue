@@ -31,9 +31,9 @@ export default {
       this.$store.state.onWorking = false;
     },
     stop(){
-      this.$store.state.new = true; 
+      this.$store.state.new = false; 
       this.$store.state.onWorking = true;
-      this.$store.commit("say")
+      this.$store.commit("say");
     }
   }
 

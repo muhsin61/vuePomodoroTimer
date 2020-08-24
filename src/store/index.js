@@ -6,29 +6,22 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     time: "10",
-    times: 1,
+    times: 60,
     new: false,
     onWorking: false,
-    reset: "long"
+    reset: "long",
+    onCounter: 0
   },
   mutations: {
     say: (state) => {
-      console.log("çalıştı");
-      let timer = 60 * state.times
-        //minutes,
-        //seconds;
-        state.new =false
-        state.onWorking = true
+      let timer = state.times
+        //state.new =false
+        //state.onWorking = true
+        console.log(state.timer)
         let deger = window.setInterval(() => {
           timer = timer - 1
+          state.times = timer
           state.time = timer
-          /*minutes = parseInt(timer / 60, 10);
-          seconds = parseInt(timer % 60, 10);
-          
-          minutes = minutes < 10 ? "0" + minutes : minutes;
-          seconds = seconds < 10 ? "0" + seconds : seconds;
-          
-          state.time= minutes + ":" + seconds;*/
           console.log(state.new)
         if (timer <= 0) {
           //timer = duration;

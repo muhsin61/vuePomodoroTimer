@@ -19,9 +19,9 @@ export default {
     $route() {
       let route = this.$route.path;
       this.$store.state.new = true;
-      //Push.create("Naber")
+      //Push.create("Alert")
       if (route === "/") {
-        this.$store.state.times = 1;
+        this.$store.state.times = 25 * 60;
           this.$store.state.time = "25:00";
         if(this.$store.state.onWorking){
           console.log("neden true: " + this.$store.state.onWorking)
@@ -29,15 +29,14 @@ export default {
         }
       }
       if (route === "/shortBreak") {
-        this.$store.state.times = 1;
+        this.$store.state.times = 5 * 60;
         this.$store.state.time = "05:00";
         if(this.$store.state.onWorking){
-          console.log("neden true: " + this.$store.state.onWorking)
           this.$store.state.new = true;
         }
       }
       if (route === "/longBreak") {
-        this.$store.state.times = 1;
+        this.$store.state.times = 15 * 60;
           this.$store.state.time = "10:00";
         if(this.$store.state.onWorking){
           console.log("neden true: " + this.$store.state.onWorking)
@@ -57,7 +56,14 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
+button{
+  background: transparent;
+  padding: 10px;
+  border: none;
+  border: #42b983 2px solid;
+  margin: 3px;
+  border-radius: 5px;
+}
 #nav {
   padding: 30px;
 }
