@@ -5,8 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    time: "10",
-    times: 60,
+    time: "25:00",
+    times: 1500,
     new: false,
     onWorking: false,
     reset: "long",
@@ -14,27 +14,28 @@ export default new Vuex.Store({
   },
   mutations: {
     say: (state) => {
+      if (state.new) {
+        window.clearInterval(deger)
+      }
       let timer = state.times
-        //state.new =false
-        //state.onWorking = true
-        console.log(state.timer)
-        let deger = window.setInterval(() => {
-          timer = timer - 1
-          state.times = timer
-          state.time = timer
-          console.log(state.new)
+      state.new = false
+      //state.onWorking = true
+      console.log(state.timer)
+      let deger = window.setInterval(() => {
+        timer = timer - 1
+        state.times = timer
+        state.time = timer
+        console.log(state.new)
         if (timer <= 0) {
-          //timer = duration;
           window.clearInterval(deger)
           alert("alarm")
         }
-        if(state.new){
+        if (state.new) {
           console.log("true dönüyor")
           window.clearInterval(deger)
         }
       }, 1000);
 
-  
     }
   },
   actions: {

@@ -1,10 +1,9 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
     <p>
       this is time
     </p>
-    <h1>{{$store.state.time}}</h1>
+    <h1>{{Math.trunc($store.state.time / 60)}}:{{$store.state.time % 60}}</h1>
     
     <div class="buttons">
       <button v-if="$store.state.onWorking" @click="onWorking">Stop</button>
@@ -17,9 +16,6 @@
 <script>
 export default {
   name: "HelloWorld",
-  props: {
-    msg: String,
-  },
   methods:{
     reset(){
       if(this.$store.state.reset == "long"){

@@ -2,12 +2,12 @@
   <div id="app">
     Podomoro
     <div id="nav">
-      <router-link to="/" >Podomoro</router-link>|
-      <router-link to="/shortBreak" >Short Break</router-link>|
-      <router-link to="/longBreak" >Long Break</router-link>
+      <router-link to="/">Podomoro</router-link>|
+      <router-link to="/shortBreak">Short Break</router-link>|
+      <router-link to="/longBreak">Long Break</router-link>
     </div>
     <router-view />
-    <footer>2 Podomoro</footer>
+    <footer>🌞</footer>
   </div>
 </template>
 <script>
@@ -21,26 +21,32 @@ export default {
       this.$store.state.new = true;
       //Push.create("Alert")
       if (route === "/") {
+        this.$store.state.new = true;
         this.$store.state.times = 25 * 60;
-          this.$store.state.time = "25:00";
-        if(this.$store.state.onWorking){
-          console.log("neden true: " + this.$store.state.onWorking)
+        this.$store.state.time = "25:00";
+        if (this.$store.state.onWorking) {
+          console.log("neden true: " + this.$store.state.onWorking);
           this.$store.state.new = true;
+          this.$store.state.onWorking = false;
         }
       }
       if (route === "/shortBreak") {
+        this.$store.state.new = true;
         this.$store.state.times = 5 * 60;
         this.$store.state.time = "05:00";
-        if(this.$store.state.onWorking){
+        if (this.$store.state.onWorking) {
           this.$store.state.new = true;
+          this.$store.state.onWorking = false;
         }
       }
       if (route === "/longBreak") {
+        this.$store.state.new = true;
         this.$store.state.times = 15 * 60;
-          this.$store.state.time = "10:00";
-        if(this.$store.state.onWorking){
-          console.log("neden true: " + this.$store.state.onWorking)
+        this.$store.state.time = "10:00";
+        if (this.$store.state.onWorking) {
+          console.log("neden true: " + this.$store.state.onWorking);
           this.$store.state.new = true;
+          this.$store.state.onWorking = false;
           //this.$store.commit("say")
         }
       }
@@ -56,7 +62,7 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-button{
+button {
   background: transparent;
   padding: 10px;
   border: none;
