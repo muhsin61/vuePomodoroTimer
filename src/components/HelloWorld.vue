@@ -3,11 +3,12 @@
     <p>
       this is time
     </p>
-    <h1>{{Math.trunc($store.state.time / 60)}}:{{$store.state.time % 60}}</h1>
-    
+    <h1>
+      {{ Math.trunc($store.state.time / 60) }}:{{ $store.state.time % 60 }}
+    </h1>
     <div class="buttons">
       <button v-if="$store.state.onWorking" @click="onWorking">Stop</button>
-      <button  v-else @click="stop">Start</button>
+      <button v-else @click="stop">Start</button>
       <button @click="reset">Reset</button>
     </div>
   </div>
@@ -16,23 +17,22 @@
 <script>
 export default {
   name: "HelloWorld",
-  methods:{
-    reset(){
-      if(this.$store.state.reset == "long"){
+  methods: {
+    reset() {
+      if (this.$store.state.reset == "long") {
         this.$store.state.new = true;
       }
     },
-    onWorking(){
-      this.$store.state.new = true; 
+    onWorking() {
+      this.$store.state.new = true;
       this.$store.state.onWorking = false;
     },
-    stop(){
-      this.$store.state.new = false; 
+    stop() {
+      this.$store.state.new = false;
       this.$store.state.onWorking = true;
       this.$store.commit("say");
-    }
-  }
-
+    },
+  },
 };
 </script>
 
