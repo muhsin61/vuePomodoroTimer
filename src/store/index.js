@@ -28,6 +28,7 @@ export default new Vuex.Store({
         console.log(state.new);
         if (timer <= 0) {
           window.clearInterval(deger);
+          state.time = 1500;
           Push.create("Heyyy!", {
             body: "Yor time is over'?",
             icon: '/icon.png',
