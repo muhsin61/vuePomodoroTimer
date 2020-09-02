@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import Push from "push.js";
 
 Vue.use(Vuex);
 
@@ -9,8 +10,8 @@ export default new Vuex.Store({
     times: 1500,
     new: false,
     onWorking: false,
-    reset: "long",
     onCounter: 0,
+
   },
   mutations: {
     say: (state) => {
@@ -19,7 +20,6 @@ export default new Vuex.Store({
       }
       let timer = state.times;
       state.new = false;
-      //state.onWorking = true
       console.log(state.timer);
       let deger = window.setInterval(() => {
         timer = timer - 1;
@@ -28,7 +28,15 @@ export default new Vuex.Store({
         console.log(state.new);
         if (timer <= 0) {
           window.clearInterval(deger);
-          alert("alarm");
+          Push.create("Heyyy!", {
+            body: "Yor time is over'?",
+            icon: '/icon.png',
+            timeout: 4000,
+            onClick: function () {
+              window.focus();
+              this.close();
+            }
+          });
         }
         if (state.new) {
           console.log("true dönüyor");

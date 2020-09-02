@@ -11,22 +11,17 @@
   </div>
 </template>
 <script>
-//import HelloWorld from '@/components/HelloWorld.vue'
-//import Push from "push.js"
 export default {
-  //push js bitir
   name: "App",
   watch: {
     $route() {
       let route = this.$route.path;
       this.$store.state.new = true;
-      //Push.create("Alert")
       if (route === "/") {
         this.$store.state.new = true;
         this.$store.state.times = 25 * 60;
-        this.$store.state.time = 1500;//25 minutes
+        this.$store.state.time = 1500; //25 minutes
         if (this.$store.state.onWorking) {
-          console.log("neden true: " + this.$store.state.onWorking);
           this.$store.state.new = true;
           this.$store.state.onWorking = false;
         }
@@ -34,7 +29,7 @@ export default {
       if (route === "/shortBreak") {
         this.$store.state.new = true;
         this.$store.state.times = 5 * 60;
-        this.$store.state.time = 300;//5 minutes
+        this.$store.state.time = 300; //5 minutes
         if (this.$store.state.onWorking) {
           this.$store.state.new = true;
           this.$store.state.onWorking = false;
@@ -43,12 +38,11 @@ export default {
       if (route === "/longBreak") {
         this.$store.state.new = true;
         this.$store.state.times = 15 * 60;
-        this.$store.state.time = 600;//10 minutes
+        this.$store.state.time = 600; //10 minutes
         if (this.$store.state.onWorking) {
           console.log("neden true: " + this.$store.state.onWorking);
           this.$store.state.new = true;
           this.$store.state.onWorking = false;
-          //this.$store.commit("say")
         }
       }
     },
