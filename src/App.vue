@@ -7,7 +7,6 @@
       <router-link to="/longBreak">Long Break</router-link>
     </div>
     <router-view />
-    <footer>🌞</footer>
   </div>
 </template>
 <script>
